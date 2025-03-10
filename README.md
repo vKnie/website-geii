@@ -1,59 +1,41 @@
-# 📌 Configuration des dépendances Express.js
+## Contact
 
-Ce projet utilise plusieurs **middlewares** pour améliorer la sécurité, la gestion des requêtes et les performances du serveur **Express.js**.
+Pour toute question ou suggestion, n'hésitez pas à nous contacter :
 
-## 📦 Dépendances principales
+- Kévin : [kevin.boillon@free.fr](mailto:kevin.boillon@free.fr)
+- Kelyfane : [kelyfane@gmail.com](mailto:kelyfane@gmail.com)
 
-### 1️⃣ dotenv
-**📌 Gestion des variables d'environnement**
-- Permet de stocker les variables sensibles (ex: clés API, configurations) dans un fichier `.env`.
-- Exemple d'utilisation :
-  ```js
-  require('dotenv').config();
-  const PORT = process.env.PORT || 5000;
-  ```
+### Créer une branche de fonctionnalité
 
-### 2️⃣ cors
-**📌 Autorise les requêtes cross-origin (CORS)**
-- Utile pour permettre au frontend (ex: Vue.js) d'accéder au backend.
-- Exemple d'utilisation :
-  ```js
-  const cors = require('cors');
-  app.use(cors());
-  ```
-
-### 3️⃣ helmet
-**📌 Sécurise les en-têtes HTTP**
-- Protège contre certaines attaques web (XSS, Clickjacking, etc.).
-- Exemple d'utilisation :
-  ```js
-  const helmet = require('helmet');
-  app.use(helmet());
-  ```
-
-### 4️⃣ morgan
-**📌 Logger des requêtes HTTP**
-- Affiche les logs des requêtes entrantes pour faciliter le debugging.
-- Exemple d'utilisation :
-  ```js
-  const morgan = require('morgan');
-  app.use(morgan('dev'));
-  ```
-
-### 5️⃣ compression
-**📌 Compresse les réponses HTTP**
-- Réduit la taille des réponses pour améliorer les performances.
-- Exemple d'utilisation :
-  ```js
-  const compression = require('compression');
-  app.use(compression());
-  ```
-
-## 🚀 Installation
-```sh
-npm install dotenv cors helmet morgan compression
+```bash
+git checkout dev
+git checkout -b feature/login-ui
 ```
 
-## 🎯 Conclusion
-Ces dépendances sont essentielles pour assurer un **serveur Express.js sécurisé, performant et bien structuré**. 🚀
+### Pousser ta branche vers GitHub
+```bash
+git push origin feature/login-ui
+```
+Ouvre une Pull Request (PR) sur GitHub pour fusionner la branche feature/login-ui dans dev.
 
+### Mettre à jour ta branche locale `dev`
+```bash
+git checkout dev
+git pull origin dev
+```
+
+### Vérifier les différences entre ta branche et `dev`
+```bash
+git diff dev
+```
+
+Mettre à jour `main` avec `dev` après fusion
+```bash
+git checkout main
+git pull origin main
+```
+
+### Bonnes pratiques Git
+- Toujours travailler sur des branches spécifiques à la fonctionnalité : Ne travaille pas directement sur `dev` ou `main`.
+- Faire des commits réguliers et descriptifs : Écris des messages de commit clairs pour décrire ce qui a été modifié. Exemple : `Ajout de la fonctionnalité de connexion utilisateur.`
+- Vérifier l'état avant de pousser : Utilise `git status` pour voir quels fichiers ont été modifiés et `git diff` pour inspecter les différences.
