@@ -5,17 +5,20 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 const routes = require('./routes'); // Import des routes
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // 🔹 Middlewares globaux
-app.use(cors());          // Sécurise les accès cross-origin
-app.use(helmet());        // Protège contre certaines vulnérabilités
-app.use(morgan('dev'));   // Logger des requêtes
-app.use(compression());   // Active la compression Gzip
-app.use(express.json());  // Permet de parser les requêtes JSON
-app.use(express.urlencoded({ extended: true })); // Pour les formulaires
+app.use(cors());          
+app.use(helmet());        
+app.use(morgan('dev', {
+    skip: (req) => req.url === '/favicon.ico' // ✅ Ignore le log du favicon
+}));
+app.use(compression());   
+app.use(express.json());  
+app.use(express.urlencoded({ extended: true })); 
 
 // 🔹 Routes principales
 app.use('/api', routes);

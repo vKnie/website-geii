@@ -6,10 +6,12 @@ const users = [
     { id: 2, name: "Bob" }
 ];
 
+// 🔹 Récupérer tous les utilisateurs
 router.get('/', (req, res) => {
     res.json(users);
 });
 
+// 🔹 Récupérer un utilisateur par son ID
 router.get('/:id', (req, res) => {
     const user = users.find(u => u.id === parseInt(req.params.id));
     if (!user) return res.status(404).json({ message: "Utilisateur non trouvé" });
