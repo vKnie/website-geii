@@ -1,11 +1,21 @@
 <template>
-  <div id="app">
-    <h1>Bienvenue sur Vue 3!</h1>
-  </div>
+  <v-app>
+    <!-- Insertion du composant Header ici -->
+    <HeaderComponent />
+
+    <!-- Le reste de ton application -->
+    <router-view />
+  </v-app>
 </template>
 
 <script>
+
+import HeaderComponent from './components/HeaderComponent.vue';
+
 export default {
-  name: "App"
+  name: 'App',
+  components: {
+    HeaderComponent,
+  },
 };
 </script>
