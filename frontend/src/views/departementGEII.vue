@@ -27,7 +27,7 @@
 
 <script>
 export default {
-name: 'accueil'
+name: 'departementGEII'
 }
 </script>
 
