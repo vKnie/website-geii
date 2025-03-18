@@ -11,12 +11,12 @@ import EspaceEntreprise from '../views/EspaceEntreprise.vue';
 
 // Définition des routes
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', components: Accueil },
-  { path: '/présentation', components: Presentation },
-  { path: '/formations', components: Formations },
-  { path: '/espace-etudiant', components: EspaceEtudiant },
-  { path: '/espace-enseignant', components: EspaceEnseignant },
-  { path: '/espace-entreprise', components: EspaceEntreprise }
+  { path: '/', component: Accueil },
+  { path: '/presentation', component: Presentation },
+  { path: '/formations', component: Formations },
+  { path: '/espace-etudiant', component: EspaceEtudiant },
+  { path: '/espace-enseignant', component: EspaceEnseignant },
+  { path: '/espace-entreprise', component: EspaceEntreprise }
 ];
 
 // Création du routeur
