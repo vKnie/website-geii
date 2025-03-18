@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
 // Importation des composants/pages
-import Accueil from '../views/accueil.vue';
 import DepartementGEII from '../views/departementGEII.vue';
 import Formations from '../views/formations.vue';
 import EspaceEtudiant from '../views/EspaceEtudiant.vue';
@@ -11,7 +10,6 @@ import EspaceEntreprise from '../views/EspaceEntreprise.vue';
 
 // Définition des routes
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', component: Accueil },
   { path: '/departementGEII', component: DepartementGEII },
   { path: '/formations', component: Formations },
   { path: '/espace-etudiant', component: EspaceEtudiant },

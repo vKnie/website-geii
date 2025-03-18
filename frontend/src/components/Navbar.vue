@@ -11,14 +11,10 @@
 
       <ul class="flex space-x-4 text-white relative">
 
-        <li>
-          <router-link to="/" class="hover:underline">Accueil</router-link>
-        </li>
-
         <li class="relative group">
           <router-link to="/departementGEII" class="hover:underline">Département GEII</router-link>
 
-          <ul class="absolute left-0 mt-2 w-48 bg-white text-black shadow-md rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+          <ul class="absolute left-0 mt-0 w-48 bg-white text-black shadow-md rounded-lg opacity-1 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
             <li class="px-4 py-2 hover:bg-gray-200">
               <router-link to="/departementGEII/">Généralité BUT GEII</router-link>
             </li>
@@ -44,7 +40,7 @@
         <li class="relative group">
           <router-link to="/formations" class="hover:underline">Formations</router-link>
 
-          <ul class="absolute left-0 mt-2 w-48 bg-white text-black shadow-md rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+          <ul class="absolute left-0 mt-0 w-48 bg-white text-black shadow-md rounded-lg opacity-1 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
             <li class="px-4 py-2 hover:bg-gray-200">
               <router-link to="/formations/lpmiaw">LP MIAW</router-link>
             </li>
