@@ -3,6 +3,9 @@
     <footer class="bg-gray-800 text-white p-4 mt-8">
 
       <div class="container mx-auto text-center">
+
+        <img src="../assets/logo1.png" alt="Logo IUT" class="logo">
+
         <p>&copy; 2025 Département GEII. Tous droits réservés.</p>
 
         <ul class="flex justify-center space-x-4 mt-2">
@@ -35,5 +38,10 @@
     background-color: #004b92;
   }
 
+  .logo {
+    display: flex;
+    margin: auto;
+    width: 250px;
+  }
   </style>
   
