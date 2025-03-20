@@ -8,19 +8,13 @@ import EspaceEtudiant from '../views/EspaceEtudiant.vue';
 import EspaceEnseignant from '../views/EspaceEnseignant.vue';
 import EspaceEntreprise from '../views/EspaceEntreprise.vue';
 
-import UserManager from '../views/admin/UserManager.vue';
-import FormationsManager from '../views/admin/FormationsManager.vue';
-
 // Définition des routes
 const routes: Array<RouteRecordRaw> = [
   { path: '/departementGEII', component: DepartementGEII },
   { path: '/formation/:name', component: Formation, props: true },
   { path: '/espace-etudiant', component: EspaceEtudiant },
   { path: '/espace-enseignant', component: EspaceEnseignant },
-  { path: '/espace-entreprise', component: EspaceEntreprise },
-
-  { path : '/admin/UserManager', component: UserManager },
-  { path : '/admin/FormationsManager', component: FormationsManager }
+  { path: '/espace-entreprise', component: EspaceEntreprise }
 ];
 
 // Création du routeur
