@@ -7,6 +7,7 @@ import Formations from '../views/formations.vue';
 import EspaceEtudiant from '../views/EspaceEtudiant.vue';
 import EspaceEnseignant from '../views/EspaceEnseignant.vue';
 import EspaceEntreprise from '../views/EspaceEntreprise.vue';
+import Dashbord from '../views/dashbord.vue';
 
 // Définition des routes
 const routes: Array<RouteRecordRaw> = [
@@ -14,7 +15,8 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/formations', component: Formations },
   { path: '/espace-etudiant', component: EspaceEtudiant },
   { path: '/espace-enseignant', component: EspaceEnseignant },
-  { path: '/espace-entreprise', component: EspaceEntreprise }
+  { path: '/espace-entreprise', component: EspaceEntreprise },
+  { path: '/dashbord', component: Dashbord }
 ];
 
 // Création du routeur
