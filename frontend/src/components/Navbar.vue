@@ -42,7 +42,7 @@
           <button @click="toggleSubMenu('formations')" class="w-full text-left hover:underline flex justify-between items-center lg:hidden px-4 py-2">
             Formations ▼
           </button>
-          <router-link to="/formations" class="hover:underline hidden lg:block px-4 py-2 block">Formations</router-link>
+          <router-link to="/formations" class="hover:underline lg:block px-4 py-2 block">Formations</router-link>
           <ul :class="isSubMenuOpen === 'formations' ? 'block' : 'hidden'" 
               class="lg:block lg:absolute right-0 mt-0 w-48 bg-white text-black shadow-md rounded-lg lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-300 z-50">
             <li class="hover:bg-gray-200"><router-link to="/formations/lpmiaw" class="block px-4 py-2">LP MIAW</router-link></li>
