@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-100 py-8">
+    <div class="min-h-screen py-8">
       <div class="container mx-auto px-4">
         <h1 class="text-3xl font-semibold text-center text-blue-600 mb-6">Tableau de bord - Espace étudiant</h1>
   

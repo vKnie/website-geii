@@ -21,7 +21,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* Tu peux ajouter des styles globaux ici si nécessaire */
-</style>
