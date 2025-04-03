@@ -30,8 +30,6 @@ const routes: Array<RouteRecordRaw> = [
   { path : '/dashboard-etudiant', component: DashboardEtudiant},
   { path : '/dashboard-enseignant', component: DashboardEnseignant },
   { path : '/dashboard-entreprise', component: DashboardEntreprise },
-  
-  { path: '/dashbord', component: dashbord },
   {
     path: '/admin',
     component: AdminLayout,
