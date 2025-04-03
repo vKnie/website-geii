@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center min-h-screen">
+  <div class="flex justify-center items-center">
     <div class="bg-white p-8 rounded-lg shadow-lg w-96">
       <h2 class="text-2xl font-semibold text-center mb-6">Espace Enseignant</h2>
 
@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   data() {
     return {
@@ -57,13 +57,26 @@ export default {
       password: "",
     };
   },
-  methods: {
-    handleSubmit() {
-      // Vous pouvez remplacer cette méthode par l'appel API pour authentifier l'utilisateur
-      console.log("Email:", this.email);
-      console.log("Password:", this.password);
-      // Logique pour envoyer les informations à l'API ou effectuer l'authentification
-    },
+  setup() {
+    const router = useRouter();
+
+    const handleSubmit = () => {
+      if (email.value === "enseignant@mail.com" && password.value === "1234") {
+        console.log("Connexion réussie !");
+
+        router.push("/dashbord-enseignant");
+      } else {
+        alert("Identifiants incorrects !");
+      }
+    };
+
+    return { email, password, handleSubmit };
   },
 };
+</script> -->
+
+<script>
+export default {
+  name: 'EspaceEnseignant'
+}
 </script>

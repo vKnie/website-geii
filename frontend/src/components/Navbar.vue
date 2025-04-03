@@ -1,11 +1,11 @@
 <template>
-  <nav class="bg-blue-500 p-4 shadow-md relative">
+  <nav class="bg-blue-500 shadow-md relative">
     <div class="container mx-auto flex items-center justify-between">
 
       <!-- Logo -->
       <div class="text-white font-bold text-xl">
-        <router-link to="/departementGEII" class="logo-link">
-          <img src="../assets/logo.png" alt="Logo IUT" class="w-24 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out">
+        <router-link to="/" class="logo-link">
+          <img src="../assets/logo2.png" alt="Logo IUT" class="w-50 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out">
         </router-link>
       </div>
 
@@ -25,7 +25,7 @@
           <button @click="toggleSubMenu('geii')" class="w-full text-left hover:underline flex justify-between items-center lg:hidden px-4 py-2">
             Département GEII ▼
           </button>
-          <router-link to="/departementGEII" class="hover:underline hidden lg:block px-4 py-2 block">Département GEII</router-link>
+          <router-link to="/departementGEII" class="hover:underline lg:block px-4 py-2 block">Département GEII</router-link>
           <ul :class="isSubMenuOpen === 'geii' ? 'block' : 'hidden'" 
               class="lg:block lg:absolute right-0 mt-0 w-48 bg-white text-black shadow-md rounded-lg lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-300 z-50">
             <li class="hover:bg-gray-200"><router-link to="/departementGEII/generalite-but-geii" class="block px-4 py-2">Généralité BUT GEII</router-link></li>
@@ -42,7 +42,7 @@
           <button @click="toggleSubMenu('formations')" class="w-full text-left hover:underline flex justify-between items-center lg:hidden px-4 py-2">
             Formations ▼
           </button>
-          <router-link to="/formations" class="hover:underline hidden lg:block px-4 py-2 block">Formations</router-link>
+          <router-link to="/formations" class="hover:underline lg:block px-4 py-2 block">Formations</router-link>
           <ul :class="isSubMenuOpen === 'formations' ? 'block' : 'hidden'" 
               class="lg:block lg:absolute right-0 mt-0 w-48 bg-white text-black shadow-md rounded-lg lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-300 z-50">
             <li class="hover:bg-gray-200"><router-link to="/formations/lpmiaw" class="block px-4 py-2">LP MIAW</router-link></li>
