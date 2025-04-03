@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-blue-500 text-white p-4 mt-8">
     <div class="container mx-auto text-center">
-      <img src="../assets/logo1.png" alt="Logo IUT" class="mx-auto w-64">
+      <img src="../assets/logo2.png" alt="Logo IUT" class="mx-auto w-50">
 
       <p>&copy; 2025 Département GEII. Tous droits réservés.</p>
 
