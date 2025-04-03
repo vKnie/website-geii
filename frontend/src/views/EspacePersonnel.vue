@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center">
     <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-      <h2 class="text-2xl font-semibold text-center mb-6">Espace Étudiant</h2>
+      <h2 class="text-2xl font-semibold text-center mb-6">Espace Personnel</h2>
 
       <!-- Formulaire de connexion -->
       <form @submit.prevent="handleSubmit">
