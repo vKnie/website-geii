@@ -7,9 +7,11 @@ import Formation from '../views/Formation.vue';
 import EspaceEtudiant from '../views/EspaceEtudiant.vue';
 import EspaceEnseignant from '../views/EspaceEnseignant.vue';
 import EspaceEntreprise from '../views/EspaceEntreprise.vue';
-
 import dashbord from '../views/dashbord.vue';
 
+// Importation des composants administratifs
+import AdminLayout from '../components/AdminLayout.vue'; // Assurez-vous que le chemin est correct
+import AdminDashboard from '../views/admin/AdminDashboard.vue';
 import FormationsManager from '../views/admin/FormationsManager.vue';
 import UsersManager from '../views/admin/UserManager.vue';
 
@@ -20,15 +22,23 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/espace-etudiant', component: EspaceEtudiant },
   { path: '/espace-enseignant', component: EspaceEnseignant },
   { path: '/espace-entreprise', component: EspaceEntreprise },
-  { path : '/dashbord', component: dashbord },
-  { path : '/admin/formations', component: FormationsManager },
-  { path : '/admin/users', component: UsersManager }
+  { path: '/dashbord', component: dashbord },
+  {
+    path: '/admin',
+    component: AdminLayout,
+    children: [
+      { path: '', component: AdminDashboard }, // Route par défaut pour /admin
+      { path: 'formations', component: FormationsManager },
+      { path: 'users', component: UsersManager },
+      // Ajoutez d'autres routes administratives ici
+    ],
+  },
 ];
 
 // Création du routeur
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 export default router;

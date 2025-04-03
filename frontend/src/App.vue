@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Navbar />
-    <main class="container mx-auto p-4">
+    <Navbar v-if="!isAdminRoute" />
+    <main>
       <!-- Ici, tu peux mettre le contenu principal de tes pages -->
       <router-view />
     </main>
-    <Footer />
+    <Footer v-if="!isAdminRoute" />
   </div>
 </template>
 
@@ -18,10 +18,11 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+  computed: {
+    isAdminRoute() {
+      return this.$route.path.startsWith('/admin');
+    }
   }
 }
 </script>
-
-<style scoped>
-/* Tu peux ajouter des styles globaux ici si nécessaire */
-</style>
