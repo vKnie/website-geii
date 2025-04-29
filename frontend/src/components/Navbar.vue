@@ -21,24 +21,25 @@
         <!-- Département GEII -->
         <li class="relative group">
           <router-link to="/departementGEII" class="hover:underline lg:block px-4 py-2 block">Département GEII</router-link>
-          <ul class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
-            <li class="hover:bg-gray-200"><router-link to="/departementGEII/generalite-but-geii" class="block px-4 py-2">Généralité BUT GEII</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/departementGEII/lieu-de-formation" class="block px-4 py-2">Lieu de formation</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/departementGEII/programme" class="block px-4 py-2">Programme</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/departementGEII/specificite-du-but-geii" class="block px-4 py-2">Spécificité du BUT GEII</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/departementGEII/formation-en-alternance" class="block px-4 py-2">Formation en Alternance</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/departementGEII/apres-le-but-geii" class="block px-4 py-2">Après le BUT GEII</router-link></li>
+          <ul class="absolute left-0 -mt-1 w-48 bg-white text-black shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+            <li><router-link to="/departementGEII/generalite-but-geii" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">Généralité BUT GEII</router-link></li>
+            <li><router-link to="/departementGEII/lieu-de-formation" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">Lieu de formation</router-link></li>
+            <li><router-link to="/departementGEII/programme" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">Programme</router-link></li>
+            <li><router-link to="/departementGEII/specificite-du-but-geii" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">Spécificité du BUT GEII</router-link></li>
+            <li><router-link to="/departementGEII/formation-en-alternance" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">Formation en Alternance</router-link></li>
+            <li><router-link to="/departementGEII/apres-le-but-geii" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">Après le BUT GEII</router-link></li>
           </ul>
         </li>
 
-        <!-- Formations -->
+                <!-- Formations -->
         <li class="relative group">
           <router-link to="/formations" class="hover:underline lg:block px-4 py-2 block">Formations</router-link>
-          <ul class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
-            <li class="hover:bg-gray-200"><router-link to="/formations/lpmiaw" class="block px-4 py-2">LP MIAW</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/formations/lpabdd" class="block px-4 py-2">LP ABDD</router-link></li>
-            <li class="hover:bg-gray-200"><router-link to="/formations/lpgthbt" class="block px-4 py-2">LP GTHBT</router-link></li>
+          <ul class="absolute left-0 -mt-2 w-48 bg-white text-black shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+            <li><router-link to="/formations/lpmiaw" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">LP MIAW</router-link></li>
+            <li><router-link to="/formations/lpabdd" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">LP ABDD</router-link></li>
+            <li><router-link to="/formations/lpgthbt" class="block px-4 py-2 hover:bg-gray-200 hover:rounded-md">LP GTHBT</router-link></li>
           </ul>
+
         </li>
 
         <li><router-link to="/espace-personnel" class="hover:underline px-4 py-2">Espace personnel</router-link></li>
