@@ -1,60 +1,188 @@
-import { ref, onMounted } from "vue";
-import axios from "axios";
+// api/userManager.js
+import { ref, onMounted } from 'vue';
+
+const API_BASE_URL = 'http://localhost:3000/api';
 
 export function useUserManager() {
+  // État réactif
   const users = ref([]);
-  const newUser = ref({ first_name: "", last_name: "", email: "", password: "", role: "user" });
+  const newUser = ref({
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    role: 'student'
+  });
   const editingUser = ref(null);
   const isLoading = ref(false);
+  const error = ref(null);
 
-  // Charger les utilisateurs
+  // Fonction utilitaire pour gérer les erreurs
+  const handleError = (error, context) => {
+    console.error(`Erreur ${context}:`, error);
+    
+    if (error.response) {
+      // Erreur de réponse du serveur
+      const message = error.response.data?.error || `Erreur ${error.response.status}`;
+      alert(`Erreur: ${message}`);
+    } else if (error.request) {
+      // Erreur de réseau
+      alert('Erreur de connexion au serveur. Vérifiez que le backend est démarré.');
+    } else {
+      // Autre erreur
+      alert(`Erreur: ${error.message}`);
+    }
+  };
+
+  // Récupérer tous les utilisateurs
   const fetchUsers = async () => {
+    isLoading.value = true;
+    error.value = null;
+    
     try {
-      isLoading.value = true;
-      const response = await axios.get("/api/users");
-      users.value = response.data;
-    } catch (error) {
-      console.error("Erreur de récupération des utilisateurs:", error);
+      const response = await fetch(`${API_BASE_URL}/users`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      users.value = data;
+    } catch (err) {
+      handleError(err, 'récupération des utilisateurs');
+      users.value = [];
     } finally {
       isLoading.value = false;
     }
   };
 
-  // Ajouter un utilisateur
+  // Ajouter un nouvel utilisateur
   const addUser = async () => {
+    if (!newUser.value.first_name || !newUser.value.last_name || !newUser.value.email || !newUser.value.password) {
+      alert('Veuillez remplir tous les champs obligatoires');
+      return;
+    }
+
     try {
-      await axios.post("/api/users/add", newUser.value);
-      fetchUsers();
-      newUser.value = { first_name: "", last_name: "", email: "", password: "", role: "user" };
-    } catch (error) {
-      console.error("Erreur d'ajout de l'utilisateur:", error);
+      const response = await fetch(`${API_BASE_URL}/users`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newUser.value),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      alert('Utilisateur ajouté avec succès!');
+      
+      // Rafraîchir la liste des utilisateurs
+      await fetchUsers();
+      
+      // Réinitialiser le formulaire
+      newUser.value = {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        role: 'student'
+      };
+      
+    } catch (err) {
+      handleError(err, 'ajout utilisateur');
     }
   };
 
-  // Modifier un utilisateur
+  // Mettre à jour un utilisateur
   const updateUser = async () => {
-    if (!editingUser.value) return;
+    if (!editingUser.value || !editingUser.value.id) {
+      alert('Aucun utilisateur sélectionné pour la modification');
+      return;
+    }
+
     try {
-      await axios.put(`/api/users/${editingUser.value.id}`, editingUser.value);
+      const response = await fetch(`${API_BASE_URL}/users/${editingUser.value.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editingUser.value),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      alert('Utilisateur mis à jour avec succès!');
+      
+      // Rafraîchir la liste des utilisateurs
+      await fetchUsers();
+      
+      // Fermer le formulaire d'édition
       editingUser.value = null;
-      fetchUsers();
-    } catch (error) {
-      console.error("Erreur de mise à jour de l'utilisateur:", error);
+      
+    } catch (err) {
+      handleError(err, 'mise à jour utilisateur');
     }
   };
 
   // Supprimer un utilisateur
-  const deleteUser = async (id) => {
-    if (!confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) return;
+  const deleteUser = async (userId) => {
+    if (!userId) {
+      alert('ID utilisateur invalide');
+      return;
+    }
+
+    // Demander confirmation
+    if (!confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')) {
+      return;
+    }
+
     try {
-      await axios.delete(`/api/users/${id}`);
-      fetchUsers();
-    } catch (error) {
-      console.error("Erreur de suppression de l'utilisateur:", error);
+      const response = await fetch(`${API_BASE_URL}/users/${userId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      alert('Utilisateur supprimé avec succès!');
+      
+      // Rafraîchir la liste des utilisateurs
+      await fetchUsers();
+      
+    } catch (err) {
+      handleError(err, 'suppression utilisateur');
     }
   };
 
-  onMounted(fetchUsers);
+  // Charger les données au montage du composant
+  onMounted(() => {
+    fetchUsers();
+  });
 
-  return { users, newUser, editingUser, isLoading, fetchUsers, addUser, updateUser, deleteUser };
+  // Retourner les données et fonctions réactives
+  return {
+    // État
+    users,
+    newUser,
+    editingUser,
+    isLoading,
+    error,
+    
+    // Actions
+    fetchUsers,
+    addUser,
+    updateUser,
+    deleteUser
+  };
 }
